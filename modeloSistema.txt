@@ -1,0 +1,5 @@
+O sistema terá as seguintes classes:
+	- Movie
+	- Customer
+	- Games
+	- Rental
