@@ -150,8 +150,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CostumerController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,13 +198,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Movie\Costumer.cshtml" />
-    <Content Include="Views\Movie\Games.cshtml" />
+    <Content Include="Views\Costumer\Costumer.cshtml" />
+    <Content Include="Views\Game\Games.cshtml" />
     <Content Include="Views\Movie\Movies.cshtml" />
-    <Content Include="Views\Movie\Rental.cshtml" />
+    <Content Include="Views\Rental\Rental.cshtml" />
+    <Content Include="Views\Movie\HomePage.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

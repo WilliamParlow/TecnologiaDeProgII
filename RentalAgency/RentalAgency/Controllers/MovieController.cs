@@ -3,36 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RentalAgency.Models;
 
 namespace RentalAgency.Controllers {
     public class MovieController : Controller {
 
+        List<Movie> movies = new List<Movie>(){
+            new Movie() { Name = "Shrek!", Id = 1, Duration = 180, Genre = "Comedy" },
+            new Movie() { Name = "IT", Id = 2, Duration = 173, Genre = "Horror" },
+            new Movie() { Name = "The sect", Id = 3, Duration = 130, Genre = "Horror" },
+            new Movie() { Name = "Exorcism of Emily Rose", Id = 4, Duration = 160, Genre = "Horror" }
+        };
+
+        public ActionResult HomePage() {
+
+            ViewBag.Message = "Home page";
+
+            return View();
+        }
+
         public ActionResult Movies() {
 
-            ViewBag.Message = "Movies page";
+            
 
-            return View();
+            
+            return View(movies);
         }
 
-        public ActionResult Games() {
+        public ActionResult Details(int id) {
 
-            ViewBag.Message = "Games page";
+            if (id > 4) return HttpNotFound();
 
-            return View();
-        }
+            return View(movies.Find(predicted => predicted.Id == id));
 
-        public ActionResult Costumer() {
-
-            ViewBag.Message = "Costumer page";
-
-            return View();
-        }
-
-        public ActionResult Rental() {
-
-            ViewBag.Message = "Rental page";
-
-            return View();
         }
 
     }

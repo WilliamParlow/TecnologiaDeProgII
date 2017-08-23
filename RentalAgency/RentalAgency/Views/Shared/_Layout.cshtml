@@ -17,17 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Locadora Malloc", "HomePage", "Movie", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Movies", "Movies", "Movie")</li>
-                    <li>@Html.ActionLink("Games", "Games", "Movie")</li>
-                    <li>@Html.ActionLink("Rental", "Rental", "Movie")</li>
-                    <li>@Html.ActionLink("Costumer", "Costumer", "Movie")</li>
+                    <li>@Html.ActionLink("Games", "Games", "Game")</li>
+                    <li>@Html.ActionLink("Rental", "Rental", "Rental")</li>
+                    <li>@Html.ActionLink("Costumer", "Costumer", "Costumer")</li>
                 </ul>
             </div>
         </div>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model List<RentalAgency.Models.Movie>
+<!DOCTYPE html>
 <html>
 <head>
     @{
@@ -8,6 +9,13 @@
 </head>
 <body>
     <h2>@ViewBag.Title</h2>
-    <h3>@ViewBag.Message</h3>
+    
+    <dl>
+        <dt>List of Movies</dt>
+        @foreach (var movie in Model) {
+            <dd>@Html.ActionLink(@movie.Name, "Details", new { movie.Id })</dd>
+        }
+    </dl>
+
 </body>
 </html>
