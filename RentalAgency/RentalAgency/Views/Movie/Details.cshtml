@@ -7,12 +7,17 @@
     <title></title>
 </head>
 <body>
-    <div>
-        <h1>DetailsPage</h1>
-        <p>@Model.Name</p>
-        <p>@Model.Id</p>
-        <p>@Model.Genre</p>
-        <p>@Model.Duration</p>
-    </div>
+    <section class="movie-details-container">
+        <header class="movie-header">
+            <h3>@Model.Name</h3>
+        </header>
+        <p>
+            <b>ID:</b> @Model.Id<br/>
+            <b>Gênero:</b> @Model.Genre<br/>
+            <b>Duração:</b> @Model.Duration <br/><br/>
+            <b>Descrição:</b> @Model.Descricao
+        </p>
+        <p class="movie-flex" style="background: url(@Model.ImageUrl)"></p>
+    </section>
 </body>
 </html>

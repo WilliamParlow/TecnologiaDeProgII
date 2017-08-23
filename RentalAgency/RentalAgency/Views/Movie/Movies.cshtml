@@ -8,14 +8,20 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <h2>@ViewBag.Title</h2>
     
-    <dl>
-        <dt>List of Movies</dt>
+    <section class="movie-container">
+        
+        <header class="movie-header">
+            <h3 class="movie-list-title">List of Movies</h3>
+        </header>
+        
         @foreach (var movie in Model) {
-            <dd>@Html.ActionLink(@movie.Name, "Details", new { movie.Id })</dd>
+            @Html.ActionLink(@movie.Name, "Details",
+           new { movie.Id },
+           new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" });
         }
-    </dl>
+
+    </section>
 
 </body>
 </html>
