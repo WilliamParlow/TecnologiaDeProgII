@@ -198,12 +198,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709111448452_ApplyAnnotationstoCustomerName.cs" />
+    <Compile Include="Migrations\201709111448452_ApplyAnnotationstoCustomerName.Designer.cs">
+      <DependentUpon>201709111448452_ApplyAnnotationstoCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709111518447_AddMovieList.cs" />
+    <Compile Include="Migrations\201709111518447_AddMovieList.Designer.cs">
+      <DependentUpon>201709111518447_AddMovieList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709111551243_AddNameTomembershipType.cs" />
+    <Compile Include="Migrations\201709111551243_AddNameTomembershipType.Designer.cs">
+      <DependentUpon>201709111551243_AddNameTomembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Costumer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +304,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709111448452_ApplyAnnotationstoCustomerName.resx">
+      <DependentUpon>201709111448452_ApplyAnnotationstoCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111518447_AddMovieList.resx">
+      <DependentUpon>201709111518447_AddMovieList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111551243_AddNameTomembershipType.resx">
+      <DependentUpon>201709111551243_AddNameTomembershipType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

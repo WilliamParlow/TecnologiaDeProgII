@@ -9,19 +9,34 @@
 </head>
 <body>
     
+    
+@if (!Model.Any()) {
+
     <section class="movie-container">
-        
+
+        <p>Não temos filme cadastrado até o momento!</p>
+
+    </section>
+
+}
+else {
+
+    <section class="movie-container">
+
         <header class="movie-header">
             <h3 class="movie-list-title">List of Movies</h3>
         </header>
         
+
         @foreach (var movie in Model) {
             @Html.ActionLink(@movie.Name, "Details",
-           new { movie.Id },
-           new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" });
+              new { movie.Id },
+              new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" });
         }
+
 
     </section>
 
+}
 </body>
 </html>

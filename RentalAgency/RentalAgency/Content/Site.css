@@ -118,33 +118,19 @@ a.movie-flex:hover {
     transition: .3s ease-in-out;
 }
 
-.icon-bar {
+.navbar button .icon-bar {
+    transition: .3s ease-in-out;
     background: #FFF;
 }
 
-.navbar button,
-.navbar button .icon-bar {
+.navbar button {
     transition: .3s ease-in-out;
-    opacity: 1;
+    transform: rotateZ(0deg);
 }
 
-.navbar button.collapsed,
-.navbar button.collapsed .icon-bar {
+.navbar button.collapsed {
     transition: .3s ease-in-out;
-}
-
-.navbar button.collapsed .icon-bar:first-child {
-    transform: rotateZ(45deg);
-    transform-origin: center;
-}
-
-.navbar button.collapsed .icon-bar:last-child {
-    transform-origin: center;
-    transform: rotateZ(-45deg);
-}
-
-.navbar button.collapsed .icon-bar:nth-child(2) {
-    opacity: 0;
+    transform: rotateZ(180deg);
 }
 
 
