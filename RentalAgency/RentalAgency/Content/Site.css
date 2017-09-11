@@ -118,6 +118,36 @@ a.movie-flex:hover {
     transition: .3s ease-in-out;
 }
 
+.icon-bar {
+    background: #FFF;
+}
+
+.navbar button,
+.navbar button .icon-bar {
+    transition: .3s ease-in-out;
+    opacity: 1;
+}
+
+.navbar button.collapsed,
+.navbar button.collapsed .icon-bar {
+    transition: .3s ease-in-out;
+}
+
+.navbar button.collapsed .icon-bar:first-child {
+    transform: rotateZ(45deg);
+    transform-origin: center;
+}
+
+.navbar button.collapsed .icon-bar:last-child {
+    transform-origin: center;
+    transform: rotateZ(-45deg);
+}
+
+.navbar button.collapsed .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+
+
 /* Body */
 body {
     background-image: url("https://wallpaperscraft.com/image/dark_spots_texture_background_50355_1920x1080.jpg");

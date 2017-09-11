@@ -11,13 +11,10 @@ namespace RentalAgency {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-              name: "Default",
-              url: "{controller}/{action}/{id}",
-              defaults: new { controller = "Movie", action = "HomePage", id = UrlParameter.Optional }
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Movie", action = "HomePage", id = UrlParameter.Optional }
             );
-
         }
-
     }
-
 }
