@@ -27,12 +27,15 @@ else {
             <h3 class="movie-list-title">List of Movies</h3>
         </header>
         
+        <main class="grid-movies">
 
-        @foreach (var movie in Model) {
-            @Html.ActionLink(@movie.Name, "Details",
+            @foreach (var movie in Model) {
+                @Html.ActionLink(@movie.Name, "Details",
               new { movie.Id },
               new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" });
-        }
+            }
+
+        </main>
 
 
     </section>
