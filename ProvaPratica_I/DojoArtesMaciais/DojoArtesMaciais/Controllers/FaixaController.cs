@@ -33,7 +33,11 @@ namespace DojoArtesMaciais.Controllers
 
             var listaFaixas = this._context.Faixa.ToList();
 
-            return View(listaFaixas.Find(faixa => faixa.Id == id));
+            Faixa faixaDetails = listaFaixas.Find(faixa => faixa.Id == id);
+
+            if (faixaDetails == null) return HttpNotFound();
+
+            return View(faixaDetails);
 
         }
     }

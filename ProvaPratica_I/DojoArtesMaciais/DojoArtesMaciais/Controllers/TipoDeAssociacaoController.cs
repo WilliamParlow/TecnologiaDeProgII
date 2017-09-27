@@ -33,7 +33,11 @@ namespace DojoArtesMaciais.Controllers
 
             var listaTipoAssociacao = this._context.TipoDeAssociacao.ToList();
 
-            return View(listaTipoAssociacao.Find(tipoAssociacao => tipoAssociacao.Id == id));
+            TipoDeAssociacao associacao = listaTipoAssociacao.Find(tipoAssociacao => tipoAssociacao.Id == id);
+
+            if (associacao == null) return HttpNotFound();
+
+            return View(associacao);
 
         }
     }

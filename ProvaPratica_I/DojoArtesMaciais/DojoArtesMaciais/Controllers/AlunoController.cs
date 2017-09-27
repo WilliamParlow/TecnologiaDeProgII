@@ -37,7 +37,11 @@ namespace DojoArtesMaciais.Controllers
 
             var listaAlunos = this._context.Aluno.ToList();
 
-            return View(listaAlunos.Find(aluno => aluno.Id == id));
+            Aluno alunoAtual = listaAlunos.Find(aluno => aluno.Id == id);
+
+            if (alunoAtual == null) return HttpNotFound();
+
+            return View(alunoAtual);
 
         }
     }
