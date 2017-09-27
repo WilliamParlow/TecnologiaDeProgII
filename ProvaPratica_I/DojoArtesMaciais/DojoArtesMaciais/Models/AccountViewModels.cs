@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */
+
 namespace DojoArtesMaciais.Models
 {
     public class ExternalLoginConfirmationViewModel

@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */
+
 namespace DojoArtesMaciais.Controllers {
     public class HomeController : Controller {
         public ActionResult Index() {

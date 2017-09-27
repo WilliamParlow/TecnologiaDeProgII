@@ -6,6 +6,11 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using DojoArtesMaciais.Models;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */ 
+
 namespace DojoArtesMaciais.Controllers
 {
     public class AlunoController : Controller
@@ -16,8 +21,7 @@ namespace DojoArtesMaciais.Controllers
         public AlunoController() {
 
             this._context = new ApplicationDbContext();
-            this._context.Aluno.Include(e => e.TipoDeAssociacao).ToList();
-            this._context.Aluno.Include(e => e.Faixa).ToList();
+            this._context.Aluno.Include(e => e.TipoDeAssociacao).Include(e => e.Faixa).ToList();
 
         }
 

@@ -3,6 +3,11 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */
+
 namespace DojoArtesMaciais.Models
 {
     public class IndexViewModel

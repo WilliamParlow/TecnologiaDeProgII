@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */
+
 namespace DojoArtesMaciais.Models {
     public class Aluno {
 

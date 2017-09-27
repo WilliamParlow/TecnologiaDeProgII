@@ -1,4 +1,9 @@
-﻿@model DojoArtesMaciais.Models.Aluno
+﻿<!--
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ *
+--> 
+@model DojoArtesMaciais.Models.Aluno
 
 @{
     ViewBag.Title = "Detalhes do aluno";
@@ -10,18 +15,22 @@
     <li>ID: @Model.Id</li>
     <li>Nome: @Model.Nome</li>
     <li>Cpf: @Model.Nome</li>
-    <li>Faixa:</li>
-    <ul>
-        <li>@Model.Faixa.Id</li>
-        <li>@Model.Faixa.Nome</li>
-        <li>@Model.Faixa.Grau</li>
-    </ul>
-    <li>Tipo De Associação: </li>
-    <ul>
-        <li>@Model.TipoDeAssociacao.Id</li>
-        <li>@Model.TipoDeAssociacao.Mensalidade</li>
-        <li>@Model.TipoDeAssociacao.Nome</li>
-        <li>@Model.TipoDeAssociacao.Periodo</li>
-    </ul>
+    <li>
+        Faixa:
+        <ul>
+            <li>@Model.Faixa.Id</li>
+            <li>@Model.Faixa.Nome</li>
+            <li>@Model.Faixa.Grau</li>
+        </ul>
+    </li>
+    <li>
+        Tipo De Associação:
+        <ul>
+            <li>@Model.TipoDeAssociacao.Id</li>
+            <li>@Model.TipoDeAssociacao.Mensalidade</li>
+            <li>@Model.TipoDeAssociacao.Nome</li>
+            <li>@Model.TipoDeAssociacao.Periodo</li>
+        </ul>
+    </li>
 </ul>
 

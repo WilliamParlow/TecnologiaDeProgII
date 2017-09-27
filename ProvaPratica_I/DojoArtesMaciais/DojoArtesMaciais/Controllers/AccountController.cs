@@ -10,6 +10,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DojoArtesMaciais.Models;
 
+/* 
+ * Autor: William Parlow Nichelatti
+ * Email: william.nichelatti@catolicasc.org.br
+ */
+
+
 namespace DojoArtesMaciais.Controllers
 {
     [Authorize]
