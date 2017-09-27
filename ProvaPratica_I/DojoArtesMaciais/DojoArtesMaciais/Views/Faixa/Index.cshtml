@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DojoArtesMaciais.Models.Faixa>
+
+@{
+    ViewBag.Title = "Lista de Faixas";
+}
+
+<h2>Index Faixa</h2>
+
+@if (!Model.Any()) {
+    <h1>Não há dados cadastrados no momento</h1>
+}
+else {
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Grau</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var faixa in Model) {
+
+                <tr>
+                    <td>@Html.ActionLink(faixa.Nome, "Details", new { faixa.Id })</td>
+                    <td>@faixa.Grau</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

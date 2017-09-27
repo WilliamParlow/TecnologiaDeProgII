@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DojoArtesMaciais.Models.Aluno>
+
+@{
+    ViewBag.Title = "Lista de alunos";
+}
+
+<h2>Index aluno</h2>
+
+@if(!Model.Any()) {
+    <h1>Não há dados cadastrados no momento</h1>
+}
+else {
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Faixa</th>
+                <th>Tipo De Associação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var aluno in Model) {
+
+                <tr>
+                    <td>@Html.ActionLink(aluno.Nome, "Details", new { aluno.Id })</td>
+                    <td>@aluno.Cpf</td>
+                    <td>@aluno.Faixa.Nome</td>
+                    <td>@aluno.TipoDeAssociacao.Nome</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

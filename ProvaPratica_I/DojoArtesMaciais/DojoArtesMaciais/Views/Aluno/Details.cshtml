@@ -1,0 +1,27 @@
+﻿@model DojoArtesMaciais.Models.Aluno
+
+@{
+    ViewBag.Title = "Detalhes do aluno";
+}
+
+<h2>Details aluno</h2>
+
+<ul>
+    <li>ID: @Model.Id</li>
+    <li>Nome: @Model.Nome</li>
+    <li>Cpf: @Model.Nome</li>
+    <li>Faixa:</li>
+    <ul>
+        <li>@Model.Faixa.Id</li>
+        <li>@Model.Faixa.Nome</li>
+        <li>@Model.Faixa.Grau</li>
+    </ul>
+    <li>Tipo De Associação: </li>
+    <ul>
+        <li>@Model.TipoDeAssociacao.Id</li>
+        <li>@Model.TipoDeAssociacao.Mensalidade</li>
+        <li>@Model.TipoDeAssociacao.Nome</li>
+        <li>@Model.TipoDeAssociacao.Periodo</li>
+    </ul>
+</ul>
+

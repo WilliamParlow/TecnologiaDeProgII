@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DojoArtesMaciais.Models.TipoDeAssociacao>
+
+@{
+    ViewBag.Title = "Lista de Tipo de Associação";
+}
+
+<h2>Index Tipo de Associação</h2>
+
+@if (!Model.Any()) {
+    <h1>Não há dados cadastrados no momento</h1>
+}
+else {
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Período</th>
+                <th>Mensalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var associacao in Model) {
+
+                <tr>
+                    <td>@Html.ActionLink(associacao.Nome, "Details", new { associacao.Id })</td>
+                    <td>@associacao.Periodo</td>
+                    <td>@associacao.Mensalidade</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

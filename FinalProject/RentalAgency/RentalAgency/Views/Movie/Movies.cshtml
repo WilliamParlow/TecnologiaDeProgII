@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RentalAgency.Models.Movie>
+<!DOCTYPE html>
+<html>
+<head>
+    @{
+      ViewBag.Title = "Movies";
+    }
+    <meta charset="utf-8" />
+</head>
+<body>
+    
+    
+@if (!Model.Any()) {
+
+    <section class="movie-container">
+
+        <p>Não temos filme cadastrado até o momento!</p>
+
+    </section>
+
+}
+else {
+
+    <section class="movie-container">
+
+        <header class="movie-header">
+            <h3 class="movie-list-title">List of Movies</h3>
+        </header>
+        
+        <main class="grid-movies">
+
+            @foreach (var movie in Model) {
+                <div class="movie-link-container">
+                    <div class="movie-link-wrapper">
+                        @Html.ActionLink(" ", "Details",
+                          new { movie.Id },
+                          new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" })
+                        <div>
+                            @movie.Name
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </main>
+
+
+    </section>
+
+}
+</body>
+</html>
