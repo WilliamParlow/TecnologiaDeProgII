@@ -107,11 +107,19 @@ namespace RentalAgency.Controllers {
         }
 
 
-        public ActionResult Delete() {
+        [HttpPost]
+        public ActionResult Delete(int id) {
 
-            var movieViewModel = new MovieFormViewModel();
+            var movie = this._dbContext.Movies.SingleOrDefault(m => m.Id == id);
 
-            return View("FormMovie", movieViewModel);
+            if (movie != null) {
+
+                this._dbContext.Entry(movie).State = EntityState.Deleted;
+                this._dbContext.SaveChanges();
+
+            }
+
+            return RedirectToAction("Movies");
 
         }
 

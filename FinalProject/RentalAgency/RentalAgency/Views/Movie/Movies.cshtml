@@ -43,11 +43,15 @@ else {
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit
                                 </a>
                             </div>
-                            <div class="edit-movie btn btn-danger">
-                                <a href=@Url.Action("Delete", "Movie")>
-                                    <i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete
-                                </a>
-                            </div>
+                            using (Html.BeginForm("Save", "Movie")) {
+                                @Html.HiddenFor(model => movie.Id)
+                                <div class="edit-movie btn btn-danger">
+                                    <button type="submit" class="delete-btn">
+                                        <i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete
+                                    </button>
+                                </div>
+                            }
+
                         }
                         @Html.ActionLink(" ", "Details",
                           new { movie.Id },
