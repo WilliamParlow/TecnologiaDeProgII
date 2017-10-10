@@ -31,8 +31,12 @@ a {
     text-decoration: none !important;
 }
 
-header.movie-header > h3 {
+header.movie-header > .movie-list-title {
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -131,10 +135,12 @@ a.movie-flex {
 
 
 
-.movie-link-wrapper {
-    
-}
 
+/* Edit link up of movie for administrator users */
+.edit-movie {
+    width: 50%;
+    float: left;
+}
 
 
 

@@ -5,16 +5,23 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using RentalAgency.Models;
+using RentalAgency.ViewModels;
 
 namespace RentalAgency.Controllers {
     public class MovieController : Controller {
+
+
+
 
         /* 
          
             Propriedades da classe 
          
         */
-        private ApplicationDbContext _context;
+        private ApplicationDbContext _dbContext;
+
+
+
 
 
         /* 
@@ -23,9 +30,11 @@ namespace RentalAgency.Controllers {
          
         */
         public MovieController() {
-            this._context = new ApplicationDbContext();
-            this._context.Costumers.Include(c => c.MembershipType).ToList();
+            this._dbContext = new ApplicationDbContext();
+            this._dbContext.Costumers.Include(c => c.MembershipType).ToList();
         }
+
+
 
 
 
@@ -43,14 +52,16 @@ namespace RentalAgency.Controllers {
 
         public ActionResult Movies() {
 
-            var movies = this._context.Movies.ToList();
+            var MovieIndexView = new MovieIndexViewModel() {
+                Movies = this._dbContext.Movies.ToList()
+            };
 
-            return View(movies);
+            return View(MovieIndexView.Movies);
         }
 
         public ActionResult Details(int id) {
 
-            var movies = this._context.Movies.ToList();
+            var movies = this._dbContext.Movies.ToList();
 
             if (id > movies.Count) return HttpNotFound();
 
@@ -60,13 +71,81 @@ namespace RentalAgency.Controllers {
 
 
 
+
+
+
+
+        /* 
+         
+            CRUD Actions
+         
+        */
+        public ActionResult Edit(int id) {
+
+            var movie = this._dbContext.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+
+
+            var movieViewModel = new MovieFormViewModel() {
+                Movie = movie
+            };
+
+
+            return View("FormMovie", movieViewModel);
+
+        }
+
+        public ActionResult New() {
+
+            var movieViewModel = new MovieFormViewModel();
+
+            return View("FormMovie", movieViewModel);
+
+        }
+
+
+        public ActionResult Delete() {
+
+            var movieViewModel = new MovieFormViewModel();
+
+            return View("FormMovie", movieViewModel);
+
+        }
+
+        [HttpPost] // Will be access just with POST method
+        public ActionResult Save(Movie movie) {
+
+            if (movie.Id != 0) {
+
+                _dbContext.Entry(movie).State = EntityState.Modified;
+
+            } else {
+
+                _dbContext.Movies.Add(movie);
+
+            }
+
+            _dbContext.SaveChanges();
+
+
+            return RedirectToAction("Movies");
+        }
+
+
+
+
+
+
         /* 
          
             Overrides 
          
         */
         protected override void Dispose(bool disposing) {
-            this._context.Dispose();
+            this._dbContext.Dispose();
         }
 
     }

@@ -24,7 +24,12 @@ else {
     <section class="movie-container">
 
         <header class="movie-header">
-            <h3 class="movie-list-title">List of Movies</h3>
+            <h3 class="movie-list-title">
+                <span>List of Movies</span>
+                <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
+                    <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New
+                </a>
+            </h3>
         </header>
         
         <main class="grid-movies">
@@ -32,6 +37,18 @@ else {
             @foreach (var movie in Model) {
                 <div class="movie-link-container">
                     <div class="movie-link-wrapper">
+                        @if (true) {
+                            <div class="edit-movie btn btn-danger">
+                                <a href=@Url.Action("Edit", "Movie", new { movie.Id })>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit
+                                </a>
+                            </div>
+                            <div class="edit-movie btn btn-danger">
+                                <a href=@Url.Action("Delete", "Movie")>
+                                    <i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete
+                                </a>
+                            </div>
+                        }
                         @Html.ActionLink(" ", "Details",
                           new { movie.Id },
                           new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" })
