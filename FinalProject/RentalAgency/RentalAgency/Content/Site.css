@@ -152,7 +152,21 @@ a.movie-flex {
 .edit-movie {
     width: 50%;
     float: left;
+    padding: 0;
 }
+
+
+
+
+
+/* Movie name container */
+.movie-name {
+    text-align: center !important;
+    padding: 2px;
+    cursor: default;
+}
+
+
 
 
 
@@ -296,10 +310,6 @@ body {
     main.grid-movies {
         display: grid;
         grid-template-columns: 100%;
-    }
-
-    a.movie-flex {
-        width: 100%;
     }
 
 }

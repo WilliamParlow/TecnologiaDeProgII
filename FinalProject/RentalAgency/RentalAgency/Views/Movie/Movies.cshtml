@@ -8,9 +8,9 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    
-    
-@if (!Model.Any()) {
+
+
+    @if (!Model.Any()) {
 
     <section class="movie-container">
 
@@ -18,8 +18,8 @@
 
     </section>
 
-}
-else {
+    }
+    else {
 
     <section class="movie-container">
 
@@ -31,36 +31,36 @@ else {
                 </a>
             </h3>
         </header>
-        
+
         <main class="grid-movies">
 
             @foreach (var movie in Model) {
-                <div class="movie-link-container">
-                    <div class="movie-link-wrapper">
-                        @if (true) {
-                            <div class="edit-movie btn btn-danger">
-                                <a href=@Url.Action("Edit", "Movie", new { movie.Id })>
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit
-                                </a>
-                            </div>
-                            using (Html.BeginForm("Save", "Movie")) {
-                                @Html.HiddenFor(model => movie.Id)
-                                <div class="edit-movie btn btn-danger">
-                                    <button type="submit" class="delete-btn">
-                                        <i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete
-                                    </button>
-                                </div>
-                            }
-
+            <div class="movie-link-container">
+                <div class="movie-link-wrapper">
+                    @if (true) {
+                    <div class="edit-movie btn btn-danger">
+                        <a href=@Url.Action("Edit", "Movie", new { movie.Id })>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit
+                        </a>
+                    </div>
+                        using (Html.BeginForm("Delete", "Movie", new { movie.Id })) {
+                        @Html.HiddenFor(model => movie.Id)
+                        <div class="edit-movie btn btn-danger">
+                            <button type="submit" class="delete-btn">
+                                <i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete
+                            </button>
+                        </div>
                         }
-                        @Html.ActionLink(" ", "Details",
+
+                    }
+                    @Html.ActionLink(" ", "Details",
                           new { movie.Id },
                           new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" })
-                        <div>
-                            @movie.Name
-                        </div>
+                    <div class="movie-name">
+                        @movie.Name
                     </div>
                 </div>
+            </div>
             }
 
         </main>
@@ -68,6 +68,6 @@ else {
 
     </section>
 
-}
+    }
 </body>
 </html>
