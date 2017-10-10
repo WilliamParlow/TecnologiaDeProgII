@@ -11,14 +11,19 @@
         <header class="movie-header">
             <h3>@Model.Name</h3>
         </header>
-        <p>
-            <b>Gênero:</b> @Model.Genre<br />
-            <b>Duração:</b> @Model.Duration <br /><br />
-            <b>Descrição:</b> @Model.Descricao
-        </p>
-        <p class="movie-flex" style="background: url(@Model.ImageUrl)"></p>
-        <br />
-        <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+        <div class="movies-details-wrap">
+            <div class="details-image">
+                <div class="image-details" style="background: url(@Model.ImageUrl)"></div>
+            </div>
+            <div class="details-description">
+                <div><b>Gênero:</b> @Model.Genre</div>
+                <div><b>Duração:</b> @Model.Duration</div>
+                <div><b>Descrição:</b> @Model.Descricao</div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+        </div>
     </section>
 </body>
 </html>
