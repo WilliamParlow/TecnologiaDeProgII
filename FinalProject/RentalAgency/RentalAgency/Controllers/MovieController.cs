@@ -129,7 +129,6 @@ namespace RentalAgency.Controllers {
       }
 
 
-
       public ActionResult Delete(int id) {
 
          var movie = this._dbContext.Movies.Find(id);

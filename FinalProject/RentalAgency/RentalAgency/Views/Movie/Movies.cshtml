@@ -1,64 +1,60 @@
 ﻿@model IEnumerable<RentalAgency.Models.Movie>
-<!DOCTYPE html>
-<html>
-<head>
-    @{
-      ViewBag.Title = "Movies";
-    }
-    <meta charset="utf-8" />
-</head>
-<body>
+@{
+   ViewBag.Title = "Movies";
+}
 
 
-    @if (!Model.Any()) {
 
-    <section class="movie-container">
+@if (!Model.Any()) {
 
-        <header class="movie-header">
-            <h3 class="movie-list-title">
-                <span>List of Movies</span>
-                <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
-                    <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New
-                </a>
-            </h3>
-        </header>
+<section class="movie-container">
 
-        <p>Não temos filme cadastrado até o momento!</p>
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New
+            </a>
+        </h3>
+    </header>
 
-    </section>
+    <p>Não temos filme cadastrado até o momento!</p>
 
-    }
-    else {
+</section>
 
-    <section class="movie-container">
+}
+else {
 
-        <header class="movie-header">
-            <h3 class="movie-list-title">
-                <span>List of Movies</span>
-                <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
-                    <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New
-                </a>
-            </h3>
-        </header>
+<section class="movie-container">
 
-        <main class="grid-movies">
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New
+            </a>
+        </h3>
+    </header>
 
-            @foreach (var movie in Model) {
-            <div class="movie-link-container">
-                <div class="movie-link-wrapper">
-                    @if (true) {
-                    <div class="edit-movie btn btn-danger">
-                        <a href=@Url.Action("Edit", "Movie", new { movie.Id })>
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                       <div class="edit-movie btn btn-danger">
-                           <a href=@Url.Action("Delete", "Delete", new { movie.Id })>
-                               <i class="fa fa-times" aria-hidden="true"></i>
-                           </a>
-                       </div>
+    <main class="grid-movies">
 
-                    }
+        @foreach (var movie in Model) {
+        <div class="movie-link-container">
+            <div class="movie-link-wrapper">
+                @if (true) {
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Edit", "Movie", new { movie.Id })>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Delete", "Movie", new { movie.Id })>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                }
+                <div title="@movie.Name">
                     @Html.ActionLink(" ", "Details",
                           new { movie.Id },
                           new { @style = "background:url(" + movie.ImageUrl + ");", @class = "movie-flex" })
@@ -67,13 +63,12 @@
                     </div>
                 </div>
             </div>
-            }
+        </div>
+        }
 
-        </main>
+    </main>
 
 
-    </section>
+</section>
 
-    }
-</body>
-</html>
+}

@@ -8,18 +8,16 @@
 </head>
 <body>
     <section class="movie-details-container">
-        <header class="movie-header">
-            <h3 class="movie-list-title">Título: @Model.Name</h3>
-        </header>
         <div class="details-grid">
             <div class="details-image">
                 <div class="image-details" style="background: url(@Model.ImageUrl)">
-                    <div class="movie-name">
-                        @Model.Name
-                    </div>
+
                 </div>
             </div>
             <div class="details-description">
+                <header class="movie-header">
+                    <h3 class="movie-list-title">Título: @Model.Name</h3>
+                </header>
                 <div><b>Gênero:</b> @Model.Genre</div>
                 <div><b>Duração:</b> @Model.Duration</div>
                 <div><b>Descrição:</b> @Model.Descricao</div>
