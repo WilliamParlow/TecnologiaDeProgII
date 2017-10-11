@@ -16,12 +16,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Name)
         @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Descricao)
-        @Html.TextBoxFor(m => m.Movie.Descricao, new { @class = "form-control" })
-    </div>
+    </div>    
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Duration)
@@ -38,6 +33,12 @@
         @Html.TextBoxFor(m => m.Movie.ImageUrl, new { @class = "form-control" })
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Descricao)
+        @Html.TextAreaFor(m => m.Movie.Descricao, new { @class = "form-control" })
+    </div>
+
     <button type="submit" class="btn btn-danger"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Salvar</button>
+    <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
 
 }

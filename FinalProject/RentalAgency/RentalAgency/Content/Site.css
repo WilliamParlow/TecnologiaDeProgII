@@ -153,6 +153,18 @@ a.movie-flex {
     width: 50%;
     float: left;
     padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+.edit-movie * {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -164,6 +176,7 @@ a.movie-flex {
     text-align: center !important;
     padding: 2px;
     cursor: default;
+    background-color: #d9534f;
 }
 
 
@@ -180,20 +193,47 @@ a.movie-flex {
 
 
 
-/* Movie details Paragraph */
-.movie-details-container p {
-    width: 50%;
-    height: 260px;
+
+/* Movies details grid */
+.details-grid {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.details-image,
+.details-description {
+    padding: 6px;
+}
+
+
+
+
+
+/* Movie details image */
+.details-image {
+    width: 100%;
+    height: 300px;
+}
+
+
+
+
+
+/* Image details defines */
+div.image-details {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat !important;
     background-size: 100% 100% !important;
 }
 
 
 
-/* Movies details grid */
-.details-grid {
-    display: grid;
-    grid-template-columns: 20% 80%;
+
+.details-description {
+
 }
+
 
 
 
@@ -210,47 +250,47 @@ a.movie-flex {
     transition: .3s ease-in-out;
 }
 
-.navbar ul li a::after {
-    content: '';
-    position: absolute;
-    display: block;
-    background-color: #111;
-    transition: .3s ease-in-out;
-    bottom: 0;
-    left: 0;
-    padding: 0;
-    width: 100%;
-}
+    .navbar ul li a::after {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: #111;
+        transition: .3s ease-in-out;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        width: 100%;
+    }
 
-.navbar ul li a:hover {
-    background-color: #d9534f;
-}
+    .navbar ul li a:hover {
+        background-color: #d9534f;
+    }
 
-.navbar ul li a:hover::after {
-    content: '';
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    padding: 2px;
-    width: 100%;
-    transition: .3s ease-in-out;
-}
+        .navbar ul li a:hover::after {
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            padding: 2px;
+            width: 100%;
+            transition: .3s ease-in-out;
+        }
 
-.navbar button .icon-bar {
-    transition: .3s ease-in-out;
-    background: #FFF;
-}
+    .navbar button .icon-bar {
+        transition: .3s ease-in-out;
+        background: #FFF;
+    }
 
-.navbar button {
-    transition: .3s ease-in-out;
-    transform: rotateZ(0deg);
-}
+    .navbar button {
+        transition: .3s ease-in-out;
+        transform: rotateZ(0deg);
+    }
 
-.navbar button.collapsed {
-    transition: .3s ease-in-out;
-    transform: rotateZ(180deg);
-}
+        .navbar button.collapsed {
+            transition: .3s ease-in-out;
+            transform: rotateZ(180deg);
+        }
 
 
 /* Body */
@@ -270,8 +310,15 @@ body {
 @media all and (min-width: 1199px) {
 
     main.grid-movies {
-        display: grid;
         grid-template-columns: repeat(6, 16.666%);
+    }
+
+}
+
+@media all and (max-width: 1199px) {
+
+    .details-grid {
+        grid-template-columns: 20% 80%;
     }
 
 }
@@ -279,10 +326,12 @@ body {
 @media all and (max-width: 991px) {
 
     main.grid-movies {
-        display: grid;
         grid-template-columns: repeat(4, 25%);
     }
 
+    .details-grid {
+        grid-template-columns: 25% 75%;
+    }
 }
 
 @media all and (max-width: 768px) {
@@ -299,17 +348,20 @@ body {
         transform: scale(1);
     }
 
-    .movie-details-container {
-        flex-direction: column;
-    }
-
-    .movie-details-container p{
-        width: 100%;
-    }
-
     main.grid-movies {
-        display: grid;
         grid-template-columns: repeat(2, 50%);
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+}
+
+@media all and (max-width: 600px) {
+
+    .details-grid {
+        grid-template-columns: 100%;
     }
 
 }
@@ -317,7 +369,6 @@ body {
 @media all and (max-width: 480px) {
 
     main.grid-movies {
-        display: grid;
         grid-template-columns: 100%;
     }
 
