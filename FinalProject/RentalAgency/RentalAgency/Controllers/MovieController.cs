@@ -116,6 +116,17 @@ namespace RentalAgency.Controllers {
       [HttpPost] // Will be access just with POST method
       public ActionResult Save(Movie movie) {
 
+         ModelState.Remove("movie.Id");
+
+         if (!ModelState.IsValid) {
+
+            var viewModel = new MovieFormViewModel {
+               Movie = movie
+            };
+
+            return View("FormMovie", viewModel);
+         }
+
          if (movie.Id == 0) {
             this._dbContext.Movies.Add(movie);
          }

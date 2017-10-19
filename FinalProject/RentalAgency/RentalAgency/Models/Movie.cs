@@ -5,16 +5,27 @@ using System.Linq;
 using System.Web;
 
 namespace RentalAgency.Models {
-    public class Movie {
+   public class Movie {
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Genre { get; set; }
-        public int Duration { get; set; }
-        public string ImageUrl { get; set; }
-        public string Descricao { get; set; }
+      public int Id { get; set; }
+      [Required]
+      [MaxLength(255)]
+      [Display(Name = "Nome")]
+      public string Name { get; set; }
+      [Required]
+      [Display(Name = "Gênero")]
+      public string Genre { get; set; }
+      [Required]
+      [Display(Name = "Duração")]
+      [Range(0, int.MaxValue)]
+      public int Duration { get; set; }
+      [Display(Name = "Selecione uma imagem")]
+      public string ImageUrl { get; set; }
+      [Required]
+      [Display(Name = "Descrição")]
+      public string Descricao { get; set; }
 
 
-    }
+   }
 
 }

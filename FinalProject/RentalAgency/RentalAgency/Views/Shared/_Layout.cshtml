@@ -34,11 +34,11 @@
     </div>
     <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Malloc</p>
-        </footer>
     </div>
+
+    <footer class="footer">
+        <p>&copy; @DateTime.Now.Year - Malloc</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
