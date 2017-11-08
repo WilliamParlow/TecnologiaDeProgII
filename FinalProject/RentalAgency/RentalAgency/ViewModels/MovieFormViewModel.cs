@@ -8,6 +8,7 @@ namespace RentalAgency.ViewModels {
    public class MovieFormViewModel {
 
       public Movie Movie;
+      public IEnumerable<Category> Categories;
       public string Title {
 
          get {

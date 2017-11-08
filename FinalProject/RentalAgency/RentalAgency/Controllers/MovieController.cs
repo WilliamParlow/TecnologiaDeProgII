@@ -15,7 +15,7 @@ namespace RentalAgency.Controllers {
           Propriedades da classe 
 
       */
-      private ApplicationDbContext _dbContext;
+      private ApplicationDbContext _dbContext = new ApplicationDbContext();
 
 
 
@@ -27,8 +27,7 @@ namespace RentalAgency.Controllers {
 
       */
       public MovieController() {
-         this._dbContext = new ApplicationDbContext();
-         this._dbContext.Costumers.Include(c => c.MembershipType).ToList();
+         _dbContext.Movies.Include(m => m.Category).ToList();
       }
 
 
@@ -54,7 +53,7 @@ namespace RentalAgency.Controllers {
       public ActionResult Movies() {
 
          var MovieIndexView = new MovieIndexViewModel() {
-            Movies = this._dbContext.Movies.ToList()
+            Movies = _dbContext.Movies.ToList()
          };
 
          return View(MovieIndexView.Movies);
@@ -64,7 +63,7 @@ namespace RentalAgency.Controllers {
 
       public ActionResult Details(int id) {
 
-         var movie = this._dbContext.Movies.ToList().Find(predicted => predicted.Id == id);
+         var movie = _dbContext.Movies.ToList().Find(predicted => predicted.Id == id);
 
          if (movie == null) return HttpNotFound();
 
@@ -85,15 +84,15 @@ namespace RentalAgency.Controllers {
       */
       public ActionResult Edit(int id) {
 
-         var movie = this._dbContext.Movies.SingleOrDefault(m => m.Id == id);
+         var movie = _dbContext.Movies.SingleOrDefault(m => m.Id == id);
 
          if (movie == null)
             return HttpNotFound();
-
-
+         
 
          var movieViewModel = new MovieFormViewModel() {
-            Movie = movie
+            Movie = movie,
+            Categories = _dbContext.Category.ToList()
          };
 
 
@@ -105,8 +104,11 @@ namespace RentalAgency.Controllers {
 
       public ActionResult New() {
 
-         var movieViewModel = new MovieFormViewModel();
+         var movieViewModel = new MovieFormViewModel() {
+            Categories = _dbContext.Category.ToList()
+         };
 
+         ViewBag.CategoryId = new SelectList(_dbContext.Category, "Id", "CategoryName");
          return View("FormMovie", movieViewModel);
 
       }
@@ -114,40 +116,52 @@ namespace RentalAgency.Controllers {
 
 
       [HttpPost] // Will be access just with POST method
+      [ValidateAntiForgeryToken]
       public ActionResult Save(Movie movie) {
 
          ModelState.Remove("movie.Id");
-
+         ModelState.Remove("movie.CategoryId");
          if (!ModelState.IsValid) {
 
             var viewModel = new MovieFormViewModel {
-               Movie = movie
+               Movie = movie,
+               Categories = _dbContext.Category.ToList()
             };
 
             return View("FormMovie", viewModel);
          }
 
          if (movie.Id == 0) {
-            this._dbContext.Movies.Add(movie);
-         }
-         else {
-            this._dbContext.Entry(movie).State = EntityState.Modified;
+
+            _dbContext.Movies.Add(movie);
+
+         } else {
+
+            Movie dbMovieContext = _dbContext.Movies.Single(m => m.Id == movie.Id);
+
+            dbMovieContext.CategoryId = movie.CategoryId;
+            dbMovieContext.Date = movie.Date;
+            dbMovieContext.Descricao = movie.Descricao;
+            dbMovieContext.Duration = movie.Duration;
+            dbMovieContext.ImageUrl = movie.ImageUrl;
+            dbMovieContext.Name = movie.Name;
+
          }
 
-         this._dbContext.SaveChanges();
-
+         _dbContext.SaveChanges();
+         
          return RedirectToAction("Movies");
       }
 
 
       public ActionResult Delete(int id) {
 
-         var movie = this._dbContext.Movies.Find(id);
+         var movie = _dbContext.Movies.Find(id);
 
          if (movie != null) {
 
-            this._dbContext.Movies.Remove(movie);
-            this._dbContext.SaveChanges();
+            _dbContext.Movies.Remove(movie);
+            _dbContext.SaveChanges();
 
          }
 
@@ -166,7 +180,7 @@ namespace RentalAgency.Controllers {
 
       */
       protected override void Dispose(bool disposing) {
-         this._dbContext.Dispose();
+         _dbContext.Dispose();
       }
 
    }

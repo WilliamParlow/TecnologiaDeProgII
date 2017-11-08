@@ -218,8 +218,57 @@
     <Compile Include="Migrations\201710192218101_movie-model-modified.Designer.cs">
       <DependentUpon>201710192218101_movie-model-modified.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710231338122_category-table.cs" />
+    <Compile Include="Migrations\201710231338122_category-table.Designer.cs">
+      <DependentUpon>201710231338122_category-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231338378_category-populate.cs" />
+    <Compile Include="Migrations\201710231338378_category-populate.Designer.cs">
+      <DependentUpon>201710231338378_category-populate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231353553_category-populate-fix.cs" />
+    <Compile Include="Migrations\201710231353553_category-populate-fix.Designer.cs">
+      <DependentUpon>201710231353553_category-populate-fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231355371_populate-category-list.cs" />
+    <Compile Include="Migrations\201710231355371_populate-category-list.Designer.cs">
+      <DependentUpon>201710231355371_populate-category-list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231401032_populate-category-list-again.cs" />
+    <Compile Include="Migrations\201710231401032_populate-category-list-again.Designer.cs">
+      <DependentUpon>201710231401032_populate-category-list-again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231429043_form-movie-view-category-ienumerablelist.cs" />
+    <Compile Include="Migrations\201710231429043_form-movie-view-category-ienumerablelist.Designer.cs">
+      <DependentUpon>201710231429043_form-movie-view-category-ienumerablelist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231739439_MovieModelChange.cs" />
+    <Compile Include="Migrations\201710231739439_MovieModelChange.Designer.cs">
+      <DependentUpon>201710231739439_MovieModelChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710231845145_MovieModelChangeForeignKey.cs" />
+    <Compile Include="Migrations\201710231845145_MovieModelChangeForeignKey.Designer.cs">
+      <DependentUpon>201710231845145_MovieModelChangeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710312132470_model-modification.cs" />
+    <Compile Include="Migrations\201710312132470_model-modification.Designer.cs">
+      <DependentUpon>201710312132470_model-modification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710312219145_movie-release-data.cs" />
+    <Compile Include="Migrations\201710312219145_movie-release-data.Designer.cs">
+      <DependentUpon>201710312219145_movie-release-data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710312313561_movie-release-data-up.cs" />
+    <Compile Include="Migrations\201710312313561_movie-release-data-up.Designer.cs">
+      <DependentUpon>201710312313561_movie-release-data-up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711062152195_check-update.cs" />
+    <Compile Include="Migrations\201711062152195_check-update.Designer.cs">
+      <DependentUpon>201711062152195_check-update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Costumer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -246,9 +295,23 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.globalize.js" />
+    <Content Include="Scripts\jquery.validate.globalize.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -328,6 +391,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710192218101_movie-model-modified.resx">
       <DependentUpon>201710192218101_movie-model-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231338122_category-table.resx">
+      <DependentUpon>201710231338122_category-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231338378_category-populate.resx">
+      <DependentUpon>201710231338378_category-populate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231353553_category-populate-fix.resx">
+      <DependentUpon>201710231353553_category-populate-fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231355371_populate-category-list.resx">
+      <DependentUpon>201710231355371_populate-category-list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231401032_populate-category-list-again.resx">
+      <DependentUpon>201710231401032_populate-category-list-again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231429043_form-movie-view-category-ienumerablelist.resx">
+      <DependentUpon>201710231429043_form-movie-view-category-ienumerablelist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231739439_MovieModelChange.resx">
+      <DependentUpon>201710231739439_MovieModelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710231845145_MovieModelChangeForeignKey.resx">
+      <DependentUpon>201710231845145_MovieModelChangeForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312132470_model-modification.resx">
+      <DependentUpon>201710312132470_model-modification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312219145_movie-release-data.resx">
+      <DependentUpon>201710312219145_movie-release-data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312313561_movie-release-data-up.resx">
+      <DependentUpon>201710312313561_movie-release-data-up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711062152195_check-update.resx">
+      <DependentUpon>201711062152195_check-update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

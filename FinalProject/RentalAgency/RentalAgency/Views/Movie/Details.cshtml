@@ -18,9 +18,10 @@
                 <header class="movie-header">
                     <h3 class="movie-list-title">Título: @Model.Name</h3>
                 </header>
-                <div><b>Gênero:</b> @Model.Genre</div>
+                <div><b>Gênero:</b> @Model.Category.CategoryName</div>
                 <div><b>Duração:</b> @Model.Duration</div>
                 <div><b>Descrição:</b> @Model.Descricao</div>
+                <div><b>Data de lançamento:</b> @Model.Date.Day /@Model.Date.Month /@Model.Date.Year</div>
             </div>
         </div>
         <div>

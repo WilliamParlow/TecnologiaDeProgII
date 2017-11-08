@@ -1,53 +1,79 @@
 ﻿@model RentalAgency.ViewModels.MovieFormViewModel
+@using RentalAgency.Models
 @{
-  ViewBag.Title = Model.Title;
-  Layout = "~/Views/Shared/_Layout.cshtml";
+   ViewBag.Title = Model.Title;
+   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
 
     <h2>@ViewBag.Title</h2>
 
-    @using (Html.BeginForm("Save", "Movie")) {
+    <div class="form-movie-image-container">
 
-    <div class="form-group hidden">
-        @Html.LabelFor(m => m.Movie.Id)
-        @Html.TextBoxFor(m => m.Movie.Id, new { @class = "form-control" })
+        <div class="movie-form col-xs-12 col-sm-6">
+
+            @using (Html.BeginForm("Save", "Movie")) {
+
+               @Html.AntiForgeryToken()
+               @Html.HiddenFor(m => m.Movie.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.Name)
+                @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.Name)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.Duration)
+                @Html.TextBoxFor(m => m.Movie.Duration, new { @class = "form-control", @type = "number" })
+                @Html.ValidationMessageFor(m => m.Movie.Duration)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.Date)
+                @Html.TextBoxFor(m => m.Movie.Date, new { @class = "form-control", @type = "date" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.Category.CategoryName)
+                @Html.DropDownListFor(m => m.Movie.CategoryId,
+                new SelectList(Model.Categories, "Id", "CategoryName"),
+                null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.Category.CategoryName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.ImageUrl)
+                @Html.TextBoxFor(m => m.Movie.ImageUrl, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.ImageUrl)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Movie.Descricao)
+                @Html.TextAreaFor(m => m.Movie.Descricao, 5, 500, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.Descricao)
+            </div>
+
+            <button type="submit" class="btn btn-danger"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Salvar</button>
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+
+            }
+
+        </div>
+
+        <div class="movie-form col-xs-6 col-sm-6 text-center form-image-container">
+
+            @if (Model.Movie != null) {
+                <div id="img-preview" style="background-image: url(@Model.Movie.ImageUrl)"></div>
+            }
+            else {
+                <div id="img-preview" style="background-image: url()"></div>
+            }
+            
+
+        </div>
+
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Name)
-        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.Name)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Duration)
-        @Html.TextBoxFor(m => m.Movie.Duration, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.Duration)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Genre)
-        @Html.TextBoxFor(m => m.Movie.Genre, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.Genre)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.ImageUrl)
-        @Html.TextBoxFor(m => m.Movie.ImageUrl, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.ImageUrl)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.Descricao)
-        @Html.TextAreaFor(m => m.Movie.Descricao, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.Descricao)
-    </div>
-
-    <button type="submit" class="btn btn-danger"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Salvar</button>
-    <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
-
-    }
 
 </div>

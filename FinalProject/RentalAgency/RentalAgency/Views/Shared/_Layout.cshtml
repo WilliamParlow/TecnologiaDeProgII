@@ -37,11 +37,30 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; @DateTime.Now.Year - Malloc</p>
+        <address>&copy; @DateTime.Now.Year - Malloc</address>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            let windowHeight = window.innerHeight - parseFloat($('.footer').css('height').replace(/px/g, ''));
+
+            if ($('.footer').offset().top < windowHeight) {
+                $('.footer').addClass('footer-fixed');
+                $('.body-content').css('margin-bottom', parseFloat($('.footer').css('height').replace(/px/g, '')) + 40);
+            } else {
+                $('.footer').addClass('footer-relative');
+            }
+
+        })
+
+    </script>
+
 </body>
 </html>
