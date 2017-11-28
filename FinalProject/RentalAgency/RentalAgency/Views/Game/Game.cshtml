@@ -1,0 +1,74 @@
+﻿@model IEnumerable<RentalAgency.Models.Game>
+@{
+   ViewBag.Title = "Movies";
+}
+
+
+
+@if (!Model.Any()) {
+
+<section class="movie-container">
+
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Movie") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </h3>
+    </header>
+
+    <p>Não temos filme cadastrado até o momento!</p>
+
+</section>
+
+}
+else {
+
+<section class="movie-container">
+
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Game") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </h3>
+    </header>
+
+    <main class="grid-movies">
+
+        @foreach (var game in Model) {
+        <div class="movie-link-container">
+            <div class="movie-link-wrapper">
+                @if (true) {
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Edit", "Game", new { game.Id })>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Delete", "Game", new { game.Id })>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                }
+                <div title="@game.Name">
+                    @Html.ActionLink(" ", "Details",
+                          new { game.Id },
+                          new { @style = "background:url(" + game.ImageUrl + ");", @class = "movie-flex" })
+                    <div class="movie-name">
+                        @game.Name
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </main>
+
+
+</section>
+
+}

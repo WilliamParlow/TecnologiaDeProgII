@@ -1,0 +1,74 @@
+﻿@model RentalAgency.ViewModels.GameFormViewModel
+@using RentalAgency.Models
+@{
+   ViewBag.Title = Model.Title;
+   Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<div class="container">
+
+    <h2>@ViewBag.Title</h2>
+
+    <div class="form-movie-image-container">
+
+        <div class="movie-form col-xs-12 col-sm-6">
+
+            @using (Html.BeginForm("Save", "Game")) {
+
+               @Html.AntiForgeryToken()
+               @Html.HiddenFor(g => g.Game.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(g => g.Game.Name)
+                @Html.TextBoxFor(g => g.Game.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(g => g.Game.Name)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(g => g.Game.Date)
+                @Html.TextBoxFor(g => g.Game.Date, new { @class = "form-control", @type = "date" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(g => g.Game.Category.CategoryName)
+                @Html.DropDownListFor(g => g.Game.CategoryId,
+                new SelectList(Model.Categories, "Id", "CategoryName"),
+                null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(g => g.Game.Category.CategoryName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(g => g.Game.ImageUrl)
+                @Html.TextBoxFor(g => g.Game.ImageUrl, new { @class = "form-control" })
+                @Html.ValidationMessageFor(g => g.Game.ImageUrl)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(g => g.Game.Descricao)
+                @Html.TextAreaFor(g => g.Game.Descricao, 5, 500, new { @class = "form-control" })
+                @Html.ValidationMessageFor(g => g.Game.Descricao)
+            </div>
+
+            <button type="submit" class="btn btn-danger"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Salvar</button>
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+
+            }
+
+        </div>
+
+        <div class="movie-form col-xs-6 col-sm-6 text-center form-image-container">
+
+            @if (Model.Game != null) {
+                <div id="img-preview" style="background-image: url(@Model.Game.ImageUrl)"></div>
+            }
+            else {
+                <div id="img-preview" style="background-image: url()"></div>
+            }
+            
+
+        </div>
+
+    </div>
+
+</div>

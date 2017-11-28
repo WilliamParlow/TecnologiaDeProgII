@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 namespace RentalAgency.Controllers {
+
    public class MovieController : Controller {
 
 
@@ -40,16 +41,14 @@ namespace RentalAgency.Controllers {
 
       */
 
-
+      [AllowAnonymous]
       public ActionResult HomePage() {
 
          ViewBag.Message = "Home page";
 
          return View();
       }
-
-
-
+      
       public ActionResult Movies() {
 
          var MovieIndexView = new MovieIndexViewModel() {

@@ -1,0 +1,31 @@
+﻿@model RentalAgency.Models.Game
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <section class="movie-details-container">
+        <div class="details-grid">
+            <div class="details-image">
+                <div class="image-details" style="background: url(@Model.ImageUrl)">
+
+                </div>
+            </div>
+            <div class="details-description">
+                <header class="movie-header">
+                    <h3 class="movie-list-title">Título: @Model.Name</h3>
+                </header>
+                <div><b>Gênero:</b> @Model.Category.CategoryName</div>
+                <div><b>Descrição:</b> @Model.Descricao</div>
+                <div><b>Data de lançamento:</b> @Model.Date.Day /@Model.Date.Month /@Model.Date.Year</div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+        </div>
+    </section>
+</body>
+</html>
