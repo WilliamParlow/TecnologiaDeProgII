@@ -1,4 +1,10 @@
-﻿body, html {
+﻿/*
+
+    GENERAL DEFINITIONS
+
+*/
+
+body, html {
     width: 100%;
     height: 100%;
 }
@@ -47,6 +53,30 @@ header.movie-header > .movie-list-title {
     justify-content: space-between;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,11 +338,24 @@ div.image-details {
 .input-validation-error {
     border: 2px solid red;
 }
-    /*
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
     BOOTSTRAP SUBSCRIBING
 
 */
+
     /* Navbar */
     .navbar {
     background-color: #111;
@@ -372,6 +415,113 @@ div.image-details {
 body {
     background-color: #1A1A1A;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+    
+    HOME PAGE
+
+*/
+
+.image-apresentation {
+    background-image: url(https://cdn-images-1.medium.com/max/1200/1*F0u0WB6EslNKYI5P4H9U1A.jpeg);
+    min-height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    position: relative;
+    box-shadow: 10px 0 10px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    color: #FFF;
+    font-family: monospace;
+}
+
+.image-apresentation h1 {
+    z-index: 9999;
+    border-bottom: 5vh solid;
+    border-top: 5vh solid;
+    border-radius: 100%;
+    font-size: 8vw;
+    padding: 15vh 0;
+    text-shadow: 0 0 30px;
+    transform: scale(1.3);
+    transform-origin: center;
+    animation: changecolor 3000ms ease-in-out infinite alternate;
+}
+
+.image-apresentation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+
+
+
+
+
+
+/*
+
+    KEYFRAMES
+
+*/
+
+@keyframes changecolor {
+
+    0% {
+        border-color: aqua;
+        text-shadow: 0 0 30px aqua;
+    }
+
+    50% {
+        border-color: #ebff00;
+        text-shadow: 0 0 30px #ebff00;
+    }
+
+    100% {
+        border-color: rgb(236, 90, 21);
+        text-shadow: 0 0 30px rgb(236, 90, 21);
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 /* 
     
