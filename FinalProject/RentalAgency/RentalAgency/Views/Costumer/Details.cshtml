@@ -1,0 +1,41 @@
+﻿@model RentalAgency.Models.Costumer
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <section class="movie-details-container">
+        <div class="details-grid">
+            <div class="details-image">
+                <div class="image-details" style="background: url(@Model.ImageUrl)">
+
+                </div>
+            </div>
+            <div class="details-description">
+                <header class="movie-header">
+                    <h3 class="movie-list-title">Cliente: @Model.Name</h3>
+                </header>
+
+                <div><b>Nome:</b> @Model.Name</div>
+                <div><b>Email:</b> @Model.Email</div>
+                <div><b>Tipo de assinatura:</b> @Model.MembershipType.Name </div>
+                <div><b>Desconto:</b> @Model.MembershipType.DiscountRate %</div>
+                <div><b>Duração:</b> @Model.MembershipType.DurationInMonths meses</div>
+
+                @if (Model.IsSubscribedToNewsletter) {
+                   <div><b>Inscrito</b> <i class="fa fa-check-circle" aria-hidden="true"></i></div>
+                } else {
+                <div><b>Não inscrito</b>  <i class="fa fa-times-circle" aria-hidden="true"></i></div>
+                }
+
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-danger" onclick="history.go(-1); return false;" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Voltar</a>
+        </div>
+    </section>
+</body>
+</html>

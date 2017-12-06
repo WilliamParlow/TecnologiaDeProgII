@@ -20,10 +20,6 @@ namespace RentalAgency.Models {
       [Display(Name = "Email")]
       public string Email { get; set; }
 
-      [Required(ErrorMessage = "Selecionar um usuário é obrigatório")]
-      [Display(Name = "Usuário")]
-      public string UserID { get; set; }
-
       [Display(Name = "Inscrever para receber notícias")]
       public bool IsSubscribedToNewsletter { get; set; }
 
@@ -34,6 +30,13 @@ namespace RentalAgency.Models {
       [Required(ErrorMessage = "Selecionar um membro é obrigatório")]
       [Display(Name = "Usuário")]
       public byte MembershipTypeId { get; set; }
+
+      [Required(ErrorMessage = "Selecionar se pode editar é obricatório")]
+      [Display(Name = "Pode editar")]
+      public bool canEdit { get; set; }
+
+      [Display(Name = "Selecione uma imagem")]
+      public string ImageUrl { get; set; }
 
    }
 }

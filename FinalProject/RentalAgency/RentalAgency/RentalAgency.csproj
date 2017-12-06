@@ -274,6 +274,14 @@
     <Compile Include="Migrations\201711282214003_AddGameModel.Designer.cs">
       <DependentUpon>201711282214003_AddGameModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712052151177_updateDaDatabase.cs" />
+    <Compile Include="Migrations\201712052151177_updateDaDatabase.Designer.cs">
+      <DependentUpon>201712052151177_updateDaDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712060016573_CustomerModified.cs" />
+    <Compile Include="Migrations\201712060016573_CustomerModified.Designer.cs">
+      <DependentUpon>201712060016573_CustomerModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -287,8 +295,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GameFormViewModel.cs" />
+    <Compile Include="ViewModels\CostumerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\GameIndexViewModel.cs" />
+    <Compile Include="ViewModels\CostumerIndexViewModel.cs" />
     <Compile Include="ViewModels\MovieIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +379,8 @@
     <Content Include="Views\Movie\FormMovie.cshtml" />
     <Content Include="Views\Game\FormGame.cshtml" />
     <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Costumer\FormCostumer.cshtml" />
+    <Content Include="Views\Costumer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -445,6 +457,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711282214003_AddGameModel.resx">
       <DependentUpon>201711282214003_AddGameModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052151177_updateDaDatabase.resx">
+      <DependentUpon>201712052151177_updateDaDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712060016573_CustomerModified.resx">
+      <DependentUpon>201712060016573_CustomerModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

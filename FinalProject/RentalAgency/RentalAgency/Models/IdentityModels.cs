@@ -20,6 +20,7 @@ namespace RentalAgency.Models {
       public DbSet<Costumer> Costumers { get; set; }
       public DbSet<Category> Category { get; set; }
       public DbSet<Game> Games { get; set; }
+      public DbSet<MembershipType> MembershipTypes { get; set; }
 
       public ApplicationDbContext()
           : base("DefaultConnection", throwIfV1Schema: false) {

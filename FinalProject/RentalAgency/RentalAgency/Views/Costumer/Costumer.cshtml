@@ -1,13 +1,74 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    @{
-      ViewBag.Title = "Costumer";
-    }
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h2>@ViewBag.Title</h2>
-    <h3>@ViewBag.Message</h3>
-</body>
-</html>
+﻿@model IEnumerable<RentalAgency.Models.Costumer>
+@{
+   ViewBag.Title = "Costumers";
+}
+
+
+
+@if (!Model.Any()) {
+
+<section class="movie-container">
+
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Costumer") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </h3>
+    </header>
+
+    <p>Não temos Clientes cadastrado até o momento!</p>
+
+</section>
+
+}
+else {
+
+<section class="movie-container">
+
+    <header class="movie-header">
+        <h3 class="movie-list-title">
+            <span>List of Movies</span>
+            <a href=@Url.Action("New", "Costumer") class="btn btn-danger pull-right">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
+        </h3>
+    </header>
+
+    <main class="grid-movies">
+
+        @foreach (var costumer in Model) {
+        <div class="movie-link-container">
+            <div class="movie-link-wrapper">
+                @if (true) {
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Edit", "Costumer", new { costumer.Id })>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="edit-movie btn btn-danger">
+                    <a href=@Url.Action("Delete", "Costumer", new { costumer.Id })>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                }
+                <div title="@costumer.Name">
+                    @Html.ActionLink(" ", "Details",
+                          new { costumer.Id },
+                          new { @style = "background:url(" + costumer.ImageUrl + ");", @class = "movie-flex" })
+                    <div class="movie-name">
+                        @costumer.Name
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+    </main>
+
+
+</section>
+
+}
