@@ -1,4 +1,4 @@
-# TecnologiaDeProgII
+# tecnologia-de-prog-II
 
 Activities carried out in programming technology class. All projects in this world are developed in C# with MVC ASP.NET Framework
 
